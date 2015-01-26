@@ -40,7 +40,7 @@ def main(argv=sys.argv):
     Base.metadata.create_all(engine)
     with transaction.manager:
         manager = Manager()
-        password = os.environ.get['ADMIN_PASSWORD', u'admin')
+        password = os.environ.get('ADMIN_PASSWORD', u'admin')
         password = manager.encode(password)
         admin = User(name=u'admin', password=password)
         DBSession.add(admin)
